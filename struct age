@@ -1,0 +1,29 @@
+
+
+Aller au contenu
+Utiliser Gmail avec un lecteur d'écran
+1 sur 2 754
+(aucun objet)
+Boîte de réception
+Saad Bennani <s.ben05nani@gmail.com>
+	
+15:55 (il y a 0 minute)
+	
+	
+À moi
+
+typedef struct {
+
+    int accidents;
+
+    int indemnes;
+
+    int morts;
+
+    int blesses_graves;
+
+    int blesses_legers;
+
+} YearStats;
+
+YearStats stats[20];
