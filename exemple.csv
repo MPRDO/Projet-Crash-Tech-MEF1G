@@ -1,0 +1,5 @@
+year;collision_id;vehicule_id;location;user_type;severity;gender;birth_year;purpose
+2005;00000001;A01;1;1;4;1;1976;1
+2005;00000001;B02;1;1;3;2;1968;3
+2005;00000001;B02;2;2;1;1;1964;0
+2005;00000001;B02;4;2;1;1;2004;0
