@@ -102,3 +102,6 @@ Une fois la compilation terminée, lancer le programme avec :
 ./crashTech YEAR_DATA exemple.csv
 
 
+
+CE README N4EST PAS DEFINITIF IL évolue PROPORTIONNELLEMNT à NOTRE PROJET!!!!!
+
