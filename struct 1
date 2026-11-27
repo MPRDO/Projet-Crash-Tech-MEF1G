@@ -1,0 +1,51 @@
+typedef struct {
+
+    int accidents;
+
+    int indemnes;
+
+    int morts;
+
+    int blesses_graves;
+
+    int blesses_legers;
+
+} YearStats;
+
+typedef struct Chainon {
+    int age;
+
+    int conducteurs_hommes;
+    int conducteurs_femmes;
+
+    int passagers_hommes;
+    int passagers_femmes;
+
+    int pietons_hommes;
+    int pietons_femmes;
+
+    struct Chainon* suivant;
+} Chainon;
+
+typedef struct victime{
+    int age;
+    int genre;
+    int severity;
+    int user_type;
+    struct victime* suivant;
+}victime;
+ 
+ typedef struct vehicule{
+    int vehicule_id;
+    int purpose;
+    victime* personne;
+    struct vehicule* suivant;
+ }vehicule;
+
+typedef struct CrashDataAvl{
+    struct CrashDataAvl*droit;
+    struct CrashDataAvl*gauche;
+    long long yearcolision;
+    vehicule* vroom;
+    int equilibre;
+}CrashDataAvl;
