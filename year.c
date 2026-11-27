@@ -16,7 +16,7 @@ void lireFichier(const char *nom, YearStats tab[]) {
     // Ignorer l'en-tete.
     fgets(ligne, sizeof ligne, f);
     while (fgets(ligne, sizeof ligne, f) != NULL) {
-        if (sscanf(ligne, "%d;%31[^;];%29[^;];%d;%d;%d;%d;%d;%d",
+        if (sscanf(ligne, "%d;%d;%29[^;];%d;%d;%d;%d;%d;%d",
                    &annee, id, vehicule, &emplacement, &type,
                    &gravite, &genre, &naissance, &trajet) != 9) {
             printf("Erreur dans le format du fichier\n");
@@ -24,33 +24,30 @@ void lireFichier(const char *nom, YearStats tab[]) {
             exit(1);
         }
 if (annee >= 2005 && annee <= 2024) {
-            int i = annee - 2005;
-            if (strcmp(id, ancienId) != 0 || annee != ancienneAnnee) {
-                tab[i].accidents++;
-            }
-            if (gravite == 1) {
-                tab[i].indemnes++;
-            }
-            if (gravite == 2) {
-                tab[i].morts++;
-            }
-            if (gravite == 3) {
-                tab[i].blesses_graves++;
-            }
-            if (gravite == 4) {
-                tab[i].blesses_legers++;
-            }
-            strcpy(ancienId, id);
-            ancienneAnnee = annee;
+        int i = annee - 2005;
+        if (id != ancienId || annee != ancienneAnnee) {
+            tab[i].accidents++;
         }
+        if (gravite == 1) {
+            tab[i].indemnes++;
+        }
+        if (gravite == 2) {
+            tab[i].morts++;
+        }
+        if (gravite == 3) {
+            tab[i].blesses_graves++;
+        }
+        if (gravite == 4) {
+            tab[i].blesses_legers++;
+        }
+        ancienId = id;
+        ancienneAnnee = annee;
+
     }
-    if (ferror(f)) {
-        printf("Erreur de lecture\n");
-        fclose(f);
-        exit(1);
-    }
-    fclose(f);
+
 }
+
+fclose(f);
 
 void afficher(Annee tab[], int annee) {
     int i = annee - 2005;
