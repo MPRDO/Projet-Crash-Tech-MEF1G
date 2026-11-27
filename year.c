@@ -23,27 +23,27 @@ void lireFichier(const char *nom, YearStats tab[]) {
             fclose(f);
             exit(1);
         }
-        if (annee >= 2005 && annee <= 2024) {
-        int i = annee - 2005;
-        if (id != ancienId || annee != ancienneAnnee) {
-            tab[i].accidents++;
+if (annee >= 2005 && annee <= 2024) {
+            int i = annee - 2005;
+            if (strcmp(id, ancienId) != 0 || annee != ancienneAnnee) {
+                tab[i].accidents++;
+            }
+            if (gravite == 1) {
+                tab[i].indemnes++;
+            }
+            if (gravite == 2) {
+                tab[i].morts++;
+            }
+            if (gravite == 3) {
+                tab[i].blesses_graves++;
+            }
+            if (gravite == 4) {
+                tab[i].blesses_legers++;
+            }
+            strcpy(ancienId, id);
+            ancienneAnnee = annee;
         }
-        if (gravite == 1) {
-            tab[i].indemnes++;
-        }
-        if (gravite == 2) {
-            tab[i].morts++;
-        }
-        if (gravite == 3) {
-            tab[i].blesses_graves++;
-        }
-        if (gravite == 4) {
-            tab[i].blesses_legers++;
-        }
-        ancienId = id;
-        ancienneAnnee = annee;
     }
-}
     if (ferror(f)) {
         printf("Erreur de lecture\n");
         fclose(f);
