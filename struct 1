@@ -36,7 +36,7 @@ typedef struct victime{
 }victime;
  
  typedef struct vehicule{
-    int vehicule_id;
+    char vehicule_id;
     int purpose;
     victime* personne;
     struct vehicule* suivant;

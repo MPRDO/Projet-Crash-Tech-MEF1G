@@ -3,7 +3,7 @@
 #include "year.h"
 
 int main(int argc, char *argv[]) {
-    Annee tab[20] = {0};
+    YearStats tab[20] = {0};
     if (argc != 3) {
         printf("Utilisation : ./crashTech YEAR_DATA data.csv\n");
         return 1;
