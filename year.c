@@ -16,7 +16,7 @@ void lireFichier(const char *nom, YearStats tab[]) {
     // Ignorer l'en-tete.
     fgets(ligne, sizeof ligne, f);
     while (fgets(ligne, sizeof ligne, f) != NULL) {
-        if (sscanf(ligne, "%d;%;%d;%d;%d;%d;%d;%d",
+        if (sscanf(ligne, "%d;%31[^;];%29[^;];%d;%d;%d;%d;%d;%d",
                    &annee, id, vehicule, &emplacement, &type,
                    &gravite, &genre, &naissance, &trajet) != 9) {
             printf("Erreur dans le format du fichier\n");
@@ -44,9 +44,6 @@ void lireFichier(const char *nom, YearStats tab[]) {
         ancienneAnnee = annee;
     }
 }
-
-fclose(f);
-    }
     if (ferror(f)) {
         printf("Erreur de lecture\n");
         fclose(f);
